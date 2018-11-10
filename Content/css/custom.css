@@ -1,9 +1,10 @@
 body#LoginForm{ 
   background-image:url("https://bringmethenews.com/.image/t_share/MTU4MDcyODc4NTczNTYxMzQ4/library-books-.jpg"); 
-  background-repeat:no-repeat; 
-  background-position:center; 
-  background-size:cover; 
-  padding:10px;}
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+  }
 
   /*Commit*/
 
