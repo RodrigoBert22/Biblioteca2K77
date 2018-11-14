@@ -11,17 +11,15 @@
         $titulo = "Sistema";
         break;
 
-<<<<<<< HEAD
         case 'emprestimoLivro':
             $script = "emprestimoLivro";
             $titulo = 'Empréstimo Livro';
             break;
-=======
+
         case 'CadastrarLivros':
         $script = "cadastrarLivro";
         $titulo = "Cadastrar Livro";
         break;
->>>>>>> 7e40c46b1d0da7a0040cdc56cf580c2c99fedcff
 
         case 'Login':
         default:

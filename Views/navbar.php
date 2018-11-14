@@ -28,25 +28,27 @@
 					 }
 			      	?>
 
-			      	<?php 
-			      	if((isset ($_SESSION['nome']) == true))
-<<<<<<< HEAD
-			      		if((isset ($_SESSION['email']) == true))			   
+			      				      	<?php 
+			      	if((isset ($_SESSION['nome']) == true))			   
 							{ ?>
 			      <li class="nav-item active">
-			        <a class="nav-link" href="index.php?page=emprestimoLivro">Empréstimo Livro<span class="sr-only">(current)</span></a>
+			        <a class="nav-link" href="index.php?page=CadastrarLivros">Cadastrar Livros<span class="sr-only"></span></a>
 			      </li>
 			      <?php 
 					 }
-=======
-					{ ?>
-			      <li class="nav-item">
-			        <a class="nav-link" href="index.php?page=CadastrarLivros">Cadastrar Livros<span class="sr-only"></span></a>
-			      </li>
-			      	<?php 
-			      	}
->>>>>>> 7e40c46b1d0da7a0040cdc56cf580c2c99fedcff
 			      	?>
+
+			      				      	<?php 
+			      	if((isset ($_SESSION['nome']) == true))		   
+							{ ?>
+			      <li class="nav-item active">
+			        <a class="nav-link" href="index.php?page=emprestimoLivro">Empréstimo Livro<span class="sr-only"></span></a>
+			      </li>
+			      <?php 
+					 }
+			      	?>
+
+			      
    	
    				<?php 
 			      	if((isset ($_SESSION['nome']) == true))

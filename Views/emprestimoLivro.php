@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="../Content/css/custom.css">
  <div class="principal-emprestimo">
-		 <div class="container">
+		 <div class="container-emprestimo">
 			 <div class="after-container-emprestimo">
 			 	 <h1 class="titulo-emprestimo">Emprestimo de Livros</h1>
           <form>

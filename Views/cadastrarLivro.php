@@ -3,7 +3,7 @@
 			<div id="divMensagem"></div>
 			<div class="APorraToda" style="width: 40%; display: block; margin: 0 auto; margin-top: 10%;" >
 			<h1 style="text-align: center;">Cadastro de Livros</h1>
-			<form id="formCadastroJogador">
+			<form id="formCadastroLivro">
 			  <div class="form-group">
 			    <label for="inputLivro">Livro</label>
 			    <input style="" type="text" class="form-control inputLivro" id="inputLivro" name="inputLivro" placeholder="Informe o nome do livro">

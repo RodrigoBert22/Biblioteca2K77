@@ -4,14 +4,14 @@
     class UsuarioAplicacao
     {    
 
+        public function AdicionarLivro($livro)
         {
             $connection = new Connection();
             $conn = $connection->getConn();
-            
 
-            $sqlC = "CALL cadastrarJogador('$jogador->Email', '$jogador->Senha', '$jogador->Nome', '$jogador->Apelido', '$jogador->Data', '$jogador->Api','$jogador->ImgPerfil' ,'$jogador->Tipo')";
+            $sqlLivro = "CALL cadastrarLivro('$livro->Nome', '$livro->Qtd')";
 
-            $stmt = $conn->prepare($sqlC);
+            $stmt = $conn->prepare($sqlLivro);
             
             $stmt->execute();
 
@@ -22,10 +22,10 @@
                 
             } else {
                 $form_data['success'] = true;
-                $form_data['posted'] = 'Jogador cadastrado com sucesso!';
+                $form_data['posted'] = 'Livro(s) cadastrado(s) com sucesso!';
             }
 
-            $conn->close();	
+            $conn->close(); 
 
             echo json_encode($form_data);
             die();

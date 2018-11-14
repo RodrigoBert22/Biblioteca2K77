@@ -35,7 +35,7 @@
                 $form_data = $aplicacao->VerificaLogin($Email, $Senha);
                 break;
 
-            case "AdicionarUsuario":
+            case "AdicionarLivro":
                 if (empty($_POST['inputLivro']) OR $_POST['inputLivro'] == "") {
                             $form_data['success'] = false;
                     $erros['livro'] = 'Você deve informar um Livro';
@@ -49,10 +49,10 @@
                
                 else{
             
-                $usu = new Usuario();
-                $usu->Email = $_POST['inputLivro'];
-                $usu->Qtd = $_POST['inputQtd'];
-                $form_data = $aplicacao->AdicionarUsuario($usuario);
+                $livro = new Usuario();
+                $livro->Nome = $_POST['inputLivro'];
+                $livro->Qtd = $_POST['inputQtd'];
+                $form_data = $aplicacao->AdicionarLivro($livro);
 
                 
                 break;
