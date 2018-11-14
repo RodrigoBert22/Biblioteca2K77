@@ -4,12 +4,10 @@
     class UsuarioAplicacao
     {    
 
-      /*  public function AdicionarUsuario($usuario)
         {
             $connection = new Connection();
             $conn = $connection->getConn();
             
-          //  $stmt = $conn->prepare("INSERT INTO jogador (email, senha, nome) VALUES (?, ?, ?)"); /INSERT _ OR
 
             $sqlC = "CALL cadastrarJogador('$jogador->Email', '$jogador->Senha', '$jogador->Nome', '$jogador->Apelido', '$jogador->Data', '$jogador->Api','$jogador->ImgPerfil' ,'$jogador->Tipo')";
 
@@ -32,7 +30,7 @@
             echo json_encode($form_data);
             die();
         }
-*/
+
         public function VerificaLogin($email, $senha)
         {
             $connection = new Connection();

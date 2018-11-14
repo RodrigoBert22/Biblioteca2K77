@@ -80,6 +80,7 @@ background-size: cover;
 .back a {
 
   color: #444444; font-size: 13px;
+<<<<<<< HEAD
   text-decoration: none;}
 
 /*Inicio Consulta Livro*/
@@ -121,3 +122,6 @@ background-size: cover;
   width: 100%;
 }
 /*Final Consulta Livro*/
+=======
+  text-decoration: none;}
+>>>>>>> 7e40c46b1d0da7a0040cdc56cf580c2c99fedcff
