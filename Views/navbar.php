@@ -22,10 +22,20 @@
 			      		if((isset ($_SESSION['email']) == true))			   
 							{ ?>
 			      <li class="nav-item active">
-			        <a class="nav-link" href="index.php?page=Home">Home<span class="sr-only">(current)</span></a>
+			        <a class="nav-link" href="index.php?page=Home">Home<span class="sr-only"></span></a>
 			      </li>
 			      <?php 
 					 }
+			      	?>
+
+			      	<?php 
+			      	if((isset ($_SESSION['nome']) == true))
+					{ ?>
+			      <li class="nav-item">
+			        <a class="nav-link" href="index.php?page=CadastrarLivros">Cadastrar Livros<span class="sr-only"></span></a>
+			      </li>
+			      	<?php 
+			      	}
 			      	?>
    	
    				<?php 

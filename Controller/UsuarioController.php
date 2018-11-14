@@ -36,39 +36,22 @@
                 break;
 
             case "AdicionarUsuario":
-                if (empty($_POST['inputEmail']) OR $_POST['inputEmail'] == "") {
+                if (empty($_POST['inputLivro']) OR $_POST['inputLivro'] == "") {
                             $form_data['success'] = false;
-                    $erros['email'] = 'Você deve informar um Email';
+                    $erros['livro'] = 'Você deve informar um Livro';
                 }
     
-                else if (empty($_POST['inputNome']) OR $_POST['inputNome'] == "") {
+                else if (empty($_POST['inputQtd']) OR $_POST['inputQtd'] == "") {
                     $form_data['success'] = false;
-                    $erros['nome'] = 'Você deve informar um Nome';
-                }
+                    $erros['quantidade'] = 'Você deve informar a quantidade';
+                }   
 
-                else if (empty($_POST['inputApelido']) OR $_POST['inputApelido'] == "") {
-                   $form_data['success'] = false;
-                    $erros['apelido'] = 'Você deve informar um Apelido/Nickname';
-                }
-
-                else if (empty($_POST['inputSenha'] OR $_POST['inputSenha'] == "") OR $_POST['inputSenha'] == NULL) {
-                    $form_data['success'] = false;
-                    $erros['senha'] = 'Você deve informar uma Senha';
-                }
-                //if(md5($_POST['inputSenha'] == "d41d8cd98f00b204e9800998ecf8427e")){
-                //    $erros['senha'] = 'Você deve informar uma Senha';
-                //}
+               
                 else{
             
-                $jog = new Usuario();
-                $jog->Email = $_POST['inputEmail'];
-                $jog->Senha = $_POST['inputSenha'];
-                $jog->Apelido = $_POST['inputApelido'];
-                $jog->Nome = $_POST['inputNome'];
-                $jog->Data = $_POST['inputData'];
-                $jog->Api = base64_encode($_POST['inputSenha']);
-                $jog->Tipo = 'J';
-                $jog->ImgPerfil = 'profile.png';
+                $usu = new Usuario();
+                $usu->Email = $_POST['inputLivro'];
+                $usu->Qtd = $_POST['inputQtd'];
                 $form_data = $aplicacao->AdicionarUsuario($usuario);
 
                 

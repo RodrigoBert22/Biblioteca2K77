@@ -11,6 +11,11 @@
         $titulo = "Sistema";
         break;
 
+        case 'CadastrarLivros':
+        $script = "cadastrarLivro";
+        $titulo = "Cadastrar Livro";
+        break;
+
         case 'Login':
         default:
             $script = "login";
