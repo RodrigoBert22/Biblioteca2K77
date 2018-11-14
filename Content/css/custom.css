@@ -111,4 +111,13 @@ background-size: cover;
    color: white;
 }
 
+.btn-emprestimo-checar{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-emprestimo-checar button{
+  width: 100%;
+}
 /*Final Consulta Livro*/

@@ -8,13 +8,11 @@
               <label for="email">Nome Do Livro</label>
               <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ex: Harry Porra e a Piroca Filosofal">
               <label for="exampleInputPassword1">Disponibilidade</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ex: Indisponivel, Disponivel">
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ex: Indisponivel, Disponivel - 10">
             </div>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <div class="btn-emprestimo-checar">
+               <button type="submit" class="btn btn-primary">Checar</button>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
 			 </div>
  		 </div>
