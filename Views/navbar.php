@@ -27,6 +27,17 @@
 			      <?php 
 					 }
 			      	?>
+
+			      	<?php 
+			      	if((isset ($_SESSION['nome']) == true))
+			      		if((isset ($_SESSION['email']) == true))			   
+							{ ?>
+			      <li class="nav-item active">
+			        <a class="nav-link" href="index.php?page=emprestimoLivro">Empréstimo Livro<span class="sr-only">(current)</span></a>
+			      </li>
+			      <?php 
+					 }
+			      	?>
    	
    				<?php 
 			      	if((isset ($_SESSION['nome']) == true))
