@@ -7,7 +7,7 @@ if(!empty($_POST["allbooks"])){
   echo "<label for=disp>Disponibilidade</label>";
        while($livrose = mysqli_fetch_object($consulta123)):
             // echo "<option value='$livrose->COUNT'>".$livrose->COUNT."</option>";
-             echo "<input type='text' class='form-control' id='dist' name='dist' value='".$livrose->COUNT."'>";
+             echo "<input style='width: 500px' disabled type='text' class='form-control' id='dist' name='dist' value='".$livrose->COUNT."'>";
 
        endwhile;
 }
