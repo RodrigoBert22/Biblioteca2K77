@@ -38,11 +38,29 @@
 					 }
 			      	?>
 
-			      				      	<?php 
+			     <?php 
+			      	if((isset ($_SESSION['emailUsuario']) == true)){
+			      		if((isset ($_SESSION['tipoUsuario']) == true)){		      				   
+			      	}
+					{ ?>
+			      <li class="nav-item active">
+			        <a class="nav-link" href="index.php?page=emprestimoLivro">Empréstimo Livro<span class="sr-only"></span></a>
+			      </li>
+			      <?php 
+					}
+					} else if((isset ($_SESSION['nome']) == true)) {?>
+					 	 <li class="nav-item active">
+			       		 <a class="nav-link" href="index.php?page=loginUsuario">Empréstimo Livro<span class="sr-only"></span></a>
+			      		 </li>
+			      	<?php
+					 }
+			      	?>
+
+			      	<?php 
 			      	if((isset ($_SESSION['nome']) == true))		   
 							{ ?>
 			      <li class="nav-item active">
-			        <a class="nav-link" href="index.php?page=emprestimoLivro">Empréstimo Livro<span class="sr-only"></span></a>
+			        <a class="nav-link" href="index.php?page=CadastrarUsuarios">Cadastrar Usuários<span class="sr-only"></span></a>
 			      </li>
 			      <?php 
 					 }

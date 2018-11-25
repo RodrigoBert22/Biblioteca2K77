@@ -35,6 +35,22 @@
                 $form_data = $aplicacao->VerificaLogin($Email, $Senha);
                 break;
 
+                case "VerificarLoginUsuario":
+                if (empty($_POST['inputEmailU'])) {
+                    $erros['email'] = 'Você deve informar um email';
+                }
+            
+                if (empty($_POST['inputSenhaU'])) {
+                    $erros['senha'] = 'Você deve informar uma senha';
+                }
+
+                $SenhaU = $_POST['inputSenhaU'];
+                $EmailU = $_POST['inputEmailU'];
+
+
+                $form_data = $aplicacao->VerificaLoginUsuario($EmailU, $SenhaU);
+                break;
+
             case "AdicionarLivro":
                 if (empty($_POST['inputLivro']) OR $_POST['inputLivro'] == "") {
                             $form_data['success'] = false;
@@ -53,6 +69,41 @@
                 $livro->Nome = $_POST['inputLivro'];
                 $livro->Qtd = $_POST['inputQtd'];
                 $form_data = $aplicacao->AdicionarLivro($livro);
+
+                
+                break;
+
+                }
+                case "AdicionarUsuario":
+                if (empty($_POST['inputEmail']) OR $_POST['inputEmail'] == "") {
+                            $form_data['success'] = false;
+                    $erros['email'] = 'Você deve informar um Email';
+                }
+    
+                else if (empty($_POST['inputNome']) OR $_POST['inputNome'] == "") {
+                    $form_data['success'] = false;
+                    $erros['nome'] = 'Você deve informar um Nome';
+                }
+
+                else if (empty($_POST['inputSenha'] OR $_POST['inputSenha'] == "") OR $_POST['inputSenha'] == NULL) {
+                    $form_data['success'] = false;
+                    $erros['senha'] = 'Você deve informar uma Senha';
+                }
+
+                else if (empty($_POST['inputTipo']) OR $_POST['inputTipo'] == "") {
+                    $form_data['success'] = false;
+                    $erros['tipo'] = 'Você deve informar o Tipo';
+                }
+
+                else{
+            
+                $usuario = new Usuario();
+                $usuario->Email = $_POST['inputEmail'];
+                $usuario->Senha = $_POST['inputSenha'];
+                $usuario->Nome = $_POST['inputNome'];
+                $usuario->Data = $_POST['inputData'];
+                $usuario->Tipo = $_POST['inputTipo'];
+                $form_data = $aplicacao->AdicionarUsuario($usuario);
 
                 
                 break;

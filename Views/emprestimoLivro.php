@@ -23,11 +23,11 @@
 
 <div id="show" class="show">
 </div>
-
+<button style="margin: 0 auto; text-align: center; display: block" type="submit" class="btn btn-outline-info">Confirmar</button>
 
 <script type="text/javascript">
   var conceptName = $('#emprestimoCombo').val();
-  console.log(conceptName);
+  //console.log(conceptName);
 
   $(document).ready(function(){ 
       $("#emprestimoCombo").change(function(){ 
