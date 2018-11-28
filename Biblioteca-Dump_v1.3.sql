@@ -18,6 +18,33 @@ USE `biblioteca`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `emprestimo`
+--
+
+DROP TABLE IF EXISTS `emprestimo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `emprestimo` (
+  `idUsuario` int(11) NOT NULL,
+  `idLivro` int(11) NOT NULL,
+  `DataVencimentoEmprestimo` date NOT NULL,
+  KEY `idLivro` (`idLivro`),
+  KEY `idUsuario` (`idUsuario`),
+  CONSTRAINT `emprestimo_ibfk_1` FOREIGN KEY (`idLivro`) REFERENCES `livro` (`idLivro`),
+  CONSTRAINT `emprestimo_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `emprestimo`
+--
+
+LOCK TABLES `emprestimo` WRITE;
+/*!40000 ALTER TABLE `emprestimo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `emprestimo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `livro`
 --
 
@@ -29,7 +56,7 @@ CREATE TABLE `livro` (
   `nomeLivro` varchar(150) NOT NULL,
   `disponibilidade` int(1) NOT NULL,
   PRIMARY KEY (`idLivro`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,17 +139,29 @@ UNLOCK TABLES;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cadastrarLivro`(IN `nomeLivro` VARCHAR(150), IN QtdLivro INT(11))
-BEGIN
+BEGIN
 
-DECLARE cont INT;
-SET cont = 1;
+
 
- WHILE cont <= QtdLivro DO
- 
-INSERT INTO livro(nomeLivro, disponibilidade) VALUES (nomeLivro,1);
-SET cont = cont+1;
+DECLARE cont INT;
 
- END WHILE;
+SET cont = 1;
+
+
+
+ WHILE cont <= QtdLivro DO
+
+ 
+
+INSERT INTO livro(nomeLivro, disponibilidade) VALUES (nomeLivro,1);
+
+SET cont = cont+1;
+
+
+
+ END WHILE;
+
+
 
 END ;;
 DELIMITER ;
@@ -141,11 +180,11 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cadastrarUsuario`(IN `emailR` VARCHAR(80), IN `senhaR` VARCHAR(80), IN `nomeR` VARCHAR(80), IN `dataR` DATE, IN `tipoR` VARCHAR(1))
-BEGIN
-
-INSERT INTO usuario (email, senha, nome, data_nascimento, tipo, data_cadastro, data_vencimento_cadastro) VALUES (emailR, senhaR, nomeR, dataR, tipoR, NOW(), NOW() + INTERVAL 1 YEAR);
-
-
+BEGIN
+
+INSERT INTO usuario (email, senha, nome, data_nascimento, tipo, data_cadastro, data_vencimento_cadastro) VALUES (emailR, senhaR, nomeR, dataR, tipoR, NOW(), NOW() + INTERVAL 1 YEAR);
+
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -162,4 +201,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-25 10:53:25
+-- Dump completed on 2018-11-27 23:09:10

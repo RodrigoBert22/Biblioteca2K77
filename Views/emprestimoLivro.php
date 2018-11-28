@@ -1,16 +1,22 @@
 <link rel="stylesheet" type="text/css" href="Content/css/custom.css">
  <div class="principal-emprestimo" style="justify-content: center;">
      <div class="container-emprestimo">
+      <h5 id="user">Usuário:  <?php echo $_SESSION['nomeUsuario'] ?></h5>
+      <h5 id="tipo">Tipo: <?php echo $_SESSION['tipoUsuario'] ?></h5>
+      <h5 id="data">Cadastro Expira em: <?php echo $_SESSION['vencimentoUsuario'] ?></h5>
+      <a href="Views/sairUsuario.php"><button style="margin: 0 auto; text-align: center; display: block" type="button" id="deslogar" class="btn">Deslogar Usuário</button></a>
+
+      <br>
        <div class="after-container-emprestimo">
          <h1 class="titulo-emprestimo">Emprestimo de Livros</h1>
-          <form>
+          <form id="emprestimoConfirmar">
             <div class="form-group">
-              <label for="email">Nome Do Livro</label>
+              <label for="nomeLivro">Nome Do Livro</label>
               <select style="width: 500px" class="form-control" name="emprestimoCombo" id="emprestimoCombo">
    <?php  
 
        $conn = new mysqli("localhost", "root", "", "biblioteca");
-       
+
       // $consulta = mysqli_query($conn, "SELECT idLivro, nomeLivro, COUNT(nomeLivro) FROM livro GROUP BY nomeLivro");
          // echo "<option id='opt' value='0'> Selecione um Livro </option>";
        echo "<option id='opt' value= '0'> Selecione o Livro </option>";
@@ -23,7 +29,9 @@
 
 <div id="show" class="show">
 </div>
-<button style="margin: 0 auto; text-align: center; display: block" type="submit" class="btn btn-outline-info">Confirmar</button>
+<br>
+
+<button style="margin: 0 auto; text-align: center; display: block" type="submit" id="emprestimoConfirmarBtn" class="btn">Confirmar</button>
 
 <script type="text/javascript">
   var conceptName = $('#emprestimoCombo').val();
@@ -48,6 +56,8 @@
   }); 
 
 </script>
+
+
 
           </form>
        </div>

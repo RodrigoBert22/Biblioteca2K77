@@ -74,6 +74,20 @@
                 break;
 
                 }
+
+                case "emprestimoConfirmar":
+                             
+                
+                $emprestimo = new Usuario();
+                $emprestimo->LivroEmp = $_POST['emprestimoCombo'];
+                $form_data = $aplicacao->Emprestimo($emprestimo);
+
+                
+                break;
+
+                
+
+
                 case "AdicionarUsuario":
                 if (empty($_POST['inputEmail']) OR $_POST['inputEmail'] == "") {
                             $form_data['success'] = false;

@@ -39,8 +39,8 @@
 			      	?>
 
 			     <?php 
-			      	if((isset ($_SESSION['emailUsuario']) == true)){
-			      		if((isset ($_SESSION['tipoUsuario']) == true)){		      				   
+			      	if((!empty($_SESSION['emailUsuario']))){
+			      		if((!empty($_SESSION['tipoUsuario']))){		      				   
 			      	}
 					{ ?>
 			      <li class="nav-item active">
