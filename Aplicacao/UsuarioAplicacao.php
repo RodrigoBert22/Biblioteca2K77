@@ -108,39 +108,21 @@
         {
             $connection = new Connection();
             $conn = $connection->getConn();
-
-            $sql = "UPDATE livro SET disponibilidade = 0 WHERE nomeLivro LIKE '".$nomeLivroEmprestado."%' AND disponibilidade = 1 LIMIT 1";           
+            
+            //$sql = "UPDATE livro SET disponibilidade = 0 WHERE nomeLivro LIKE '".$emprestimo->LivroEmp."%' AND disponibilidade = 1 LIMIT 1";           
+            $sql = "UPDATE livro SET disponibilidade = 0 WHERE nomeLivro LIKE '$nomeLivroEmprestado' AND disponibilidade = 1 LIMIT 1";           
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param('ss', $email, $senha); // 's' especifica o tipo => 'string'
+            //$stmt->bind_param('ss', $email, $senha); // 's' especifica o tipo => 'string'
 
             $stmt->execute();
-            if ($stmt->error) {
+
+             if ($stmt->error) {
                 $erros['nome'] = "Erro: " . $conn->error;
                 $form_data['success'] = false;
                 $form_data['erros']  = $erros; 
-                
-            } else {
-                $result = $stmt->get_result();
-                if ($result->num_rows > 0) {
-                    if($row = $result->fetch_assoc()) {
-
-                        session_start([
-                            'cookie_lifetime' => 86400,
-                        ]);
-                        $_SESSION['email'] = $row["email"];
-                        $_SESSION['nome'] = $row["nome"];
-                             
-                        $form_data['success'] = true;
-                        $form_data['posted'] = 'Empréstimo efetuado com sucesso!';
-
-                    }
-                } 
-                else
-                {
-                    $erros['email'] = 'Erro ao Realizar o Empréstimo';
-                    $form_data['success'] = false;
-                    $form_data['erros']  = $erros;
-                }
+            }else{
+                $form_data['success'] = true;
+                $form_data['posted'] = 'Empréstimo efetuado com sucesso!'; 
             }
             $conn->close(); 
 
@@ -155,7 +137,7 @@
             $connection = new Connection();
             $conn = $connection->getConn();
 
-            $sql = "SELECT email, nome, tipo, data_vencimento_cadastro FROM usuario where email = ? and senha = ?";
+            $sql = "SELECT idUsuario, email, nome, tipo, data_vencimento_cadastro FROM usuario where email = ? and senha = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param('ss', $email, $senha); // 's' especifica o tipo => 'string'
 
@@ -175,20 +157,23 @@
                         ]);
                         $_SESSION['emailUsuario'] = $row["email"];
                         $_SESSION['nomeUsuario'] = $row["nome"];
-                        $_SESSION['tipoUsuario'] = $row["tipo"];
+                        $_SESSION['tipoUsuarioID'] = $row["tipo"];
+
+                        $_SESSION['idUsuario'] = $row["idUsuario"];
                         //$_SESSION['vencimentoUsuario'] = $row["data_vencimento_cadastro"];
 
                     $dataSQL = $row["data_vencimento_cadastro"];
                     $dataDDMMAAAA = date("d/m/Y", strtotime($dataSQL));
                     $_SESSION['vencimentoUsuario'] = $dataDDMMAAAA;
 
-                        if($_SESSION['tipoUsuario'] == 1){
+                     //var_dump($_SESSION);   
+                        if($_SESSION['tipoUsuarioID'] == 1){
                             $_SESSION['tipoUsuario'] = 'Professor';
                         }
-                        else if($_SESSION['tipoUsuario'] == 2){
+                        if($_SESSION['tipoUsuarioID'] == 2){
                             $_SESSION['tipoUsuario'] = 'Aluno';
                         }
-                        else{
+                        if($_SESSION['tipoUsuarioID'] == 3){
                             $_SESSION['tipoUsuario'] = 'Comunidade';
                         }
                              

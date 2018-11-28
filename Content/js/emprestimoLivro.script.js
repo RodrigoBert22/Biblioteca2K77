@@ -57,7 +57,10 @@ $( document ).ready(function() {
 			else {
 					$('#divMensagem').append('<div class="alert alert-success" role="alert">' + response.posted + '</div>')
 					.fadeIn(1000).html();
-					//redirect("index.php?page=Home");
+					redirect("index.php?page=emprestimoLivro");
+
+
+
 			}
 		});
 

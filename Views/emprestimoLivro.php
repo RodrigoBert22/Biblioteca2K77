@@ -1,8 +1,9 @@
 <link rel="stylesheet" type="text/css" href="Content/css/custom.css">
- <div class="principal-emprestimo" style="justify-content: center;">
+  <div id="divMensagem" name="divMensagem"></div>
+ <div class="principal-emprestimo container-fluid" style="justify-content: center; display: flex">
      <div class="container-emprestimo">
       <h5 id="user">Usuário:  <?php echo $_SESSION['nomeUsuario'] ?></h5>
-      <h5 id="tipo">Tipo: <?php echo $_SESSION['tipoUsuario'] ?></h5>
+         <h5 id="tipoUsuarioId1">Tipo: <?php echo $_SESSION['tipoUsuario'] ?></h5>
       <h5 id="data">Cadastro Expira em: <?php echo $_SESSION['vencimentoUsuario'] ?></h5>
       <a href="Views/sairUsuario.php"><button style="margin: 0 auto; text-align: center; display: block" type="button" id="deslogar" class="btn">Deslogar Usuário</button></a>
 
@@ -31,7 +32,8 @@
 </div>
 <br>
 
-<button style="margin: 0 auto; text-align: center; display: block" type="submit" id="emprestimoConfirmarBtn" class="btn">Confirmar</button>
+<input style="width: 30%;margin: 0 auto; text-align: center;" type="text" class="form-control" name="qtdEmp" id="qtdEmp" placeholder="Quantidade">
+<button style="margin: 0 auto; margin-top: 10px; display: block; justify-content: center; align-items: center;" type="submit" id="emprestimoConfirmarBtn" class="btn">Confirmar</button>
 
 <script type="text/javascript">
   var conceptName = $('#emprestimoCombo').val();

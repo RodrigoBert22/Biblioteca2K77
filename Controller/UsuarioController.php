@@ -77,16 +77,12 @@
 
                 case "emprestimoConfirmar":
                              
-                
-                $emprestimo = new Usuario();
-                $emprestimo->LivroEmp = $_POST['emprestimoCombo'];
-                $form_data = $aplicacao->Emprestimo($emprestimo);
+                //$emprestimo = new Usuario();
+                //$emprestimo->LivroEmp = $_POST['emprestimoCombo']."%";
+                $form_data = $aplicacao->Emprestimo($_POST['emprestimoCombo']."%");
 
                 
-                break;
-
-                
-
+                break;               
 
                 case "AdicionarUsuario":
                 if (empty($_POST['inputEmail']) OR $_POST['inputEmail'] == "") {
