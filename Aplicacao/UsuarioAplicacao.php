@@ -104,17 +104,23 @@
 
 
 
-        public function Emprestimo($nomeLivroEmprestado)
+        public function Emprestimo($nomeLivroEmprestado, $Qtd)
         {
             $connection = new Connection();
             $conn = $connection->getConn();
             
             //$sql = "UPDATE livro SET disponibilidade = 0 WHERE nomeLivro LIKE '".$emprestimo->LivroEmp."%' AND disponibilidade = 1 LIMIT 1";           
-            $sql = "UPDATE livro SET disponibilidade = 0 WHERE nomeLivro LIKE '$nomeLivroEmprestado' AND disponibilidade = 1 LIMIT 1";           
+            $sql = "UPDATE livro SET disponibilidade = 0 WHERE nomeLivro LIKE '$nomeLivroEmprestado' AND disponibilidade = 1 LIMIT $Qtd";           
             $stmt = $conn->prepare($sql);
             //$stmt->bind_param('ss', $email, $senha); // 's' especifica o tipo => 'string'
 
             $stmt->execute();
+
+            //$sql2 = "INSERT INTO";           
+            //$stmt = $conn->prepare($sql2);
+            //$stmt->bind_param('ss', $email, $senha); // 's' especifica o tipo => 'string'
+
+            //$stmt->execute();
 
              if ($stmt->error) {
                 $erros['nome'] = "Erro: " . $conn->error;
@@ -169,12 +175,18 @@
                      //var_dump($_SESSION);   
                         if($_SESSION['tipoUsuarioID'] == 1){
                             $_SESSION['tipoUsuario'] = 'Professor';
+                            $_SESSION['limiteLivros'] = 5;
+                            $_SESSION['prazo'] = 14;
                         }
                         if($_SESSION['tipoUsuarioID'] == 2){
                             $_SESSION['tipoUsuario'] = 'Aluno';
+                            $_SESSION['limiteLivros'] = 3;
+                            $_SESSION['prazo'] = 7;
                         }
                         if($_SESSION['tipoUsuarioID'] == 3){
                             $_SESSION['tipoUsuario'] = 'Comunidade';
+                            $_SESSION['limiteLivros'] = 2;
+                            $_SESSION['prazo'] = 4;
                         }
                              
                         $form_data['success'] = true;

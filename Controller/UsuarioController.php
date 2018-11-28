@@ -77,9 +77,10 @@
 
                 case "emprestimoConfirmar":
                              
-                //$emprestimo = new Usuario();
-                //$emprestimo->LivroEmp = $_POST['emprestimoCombo']."%";
-                $form_data = $aplicacao->Emprestimo($_POST['emprestimoCombo']."%");
+                $emprestimo = new Usuario();
+                $emprestimo->LivroEmp = $_POST['emprestimoCombo']."%";
+                $emprestimo->Qtd = $_POST['qtdEmp'];
+                $form_data = $aplicacao->Emprestimo($emprestimo->LivroEmp, $emprestimo->Qtd);
 
                 
                 break;               

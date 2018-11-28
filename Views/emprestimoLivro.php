@@ -32,8 +32,6 @@
 </div>
 <br>
 
-<input style="width: 30%;margin: 0 auto; text-align: center;" type="text" class="form-control" name="qtdEmp" id="qtdEmp" placeholder="Quantidade">
-<button style="margin: 0 auto; margin-top: 10px; display: block; justify-content: center; align-items: center;" type="submit" id="emprestimoConfirmarBtn" class="btn">Confirmar</button>
 
 <script type="text/javascript">
   var conceptName = $('#emprestimoCombo').val();
