@@ -2,6 +2,8 @@
     include_once '../Aplicacao/UsuarioAplicacao.php';
     include_once '../Dominio/Usuario.class.php';
 
+    //session_start();
+
     $erros = array();
     $form_data = array();
     
@@ -76,11 +78,13 @@
                 }
 
                 case "emprestimoConfirmar":
-                             
+                session_start();             
                 $emprestimo = new Usuario();
                 $emprestimo->LivroEmp = $_POST['emprestimoCombo']."%";
                 $emprestimo->Qtd = $_POST['qtdEmp'];
-                $form_data = $aplicacao->Emprestimo($emprestimo->LivroEmp, $emprestimo->Qtd);
+                $emprestimo->idUsuarioE = $_SESSION['idUsuario'];
+                $emprestimo->idTipoUE = $_SESSION['tipoUsuarioID'];
+                $form_data = $aplicacao->Emprestimo($emprestimo);
 
                 
                 break;               

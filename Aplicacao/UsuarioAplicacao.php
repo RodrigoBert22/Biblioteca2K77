@@ -104,16 +104,19 @@
 
 
 
-        public function Emprestimo($nomeLivroEmprestado, $Qtd)
+        public function Emprestimo($emprestimo)
         {
             $connection = new Connection();
             $conn = $connection->getConn();
             
             //$sql = "UPDATE livro SET disponibilidade = 0 WHERE nomeLivro LIKE '".$emprestimo->LivroEmp."%' AND disponibilidade = 1 LIMIT 1";           
-            $sql = "UPDATE livro SET disponibilidade = 0 WHERE nomeLivro LIKE '$nomeLivroEmprestado' AND disponibilidade = 1 LIMIT $Qtd";           
-            $stmt = $conn->prepare($sql);
-            //$stmt->bind_param('ss', $email, $senha); // 's' especifica o tipo => 'string'
 
+            $sqlEmp = "CALL EmprestimoLivro('$emprestimo->LivroEmp', '$emprestimo->Qtd', '$emprestimo->idUsuarioE', '$emprestimo->idTipoUE')";
+
+            //(IN `nomeLivroS` VARCHAR(150), IN QtdLivro INT(11), IN idUsuario INT (11), IN idTipoUsuario INT (11))
+
+            $stmt = $conn->prepare($sqlEmp);
+            
             $stmt->execute();
 
             //$sql2 = "INSERT INTO";           
@@ -212,7 +215,8 @@
         }
 
 
-    }
+    
+}
 
 
 ?>
