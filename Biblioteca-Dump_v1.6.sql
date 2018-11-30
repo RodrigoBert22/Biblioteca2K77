@@ -96,7 +96,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'professor@email.com','prof123','Professor','1980-10-05',1,'2018-11-25','2019-11-25'),(2,'aluno@email.com','aluno23','Aluno','2000-10-28',2,'2018-11-25','2019-11-25'),(3,'comunidade@email.com','comunidade123','Comunidade','1994-07-31',3,'2018-11-25','2019-11-25'),(4,'aaa@aaa.com','aa','AAA','1111-11-11',1,'2018-11-28','2019-11-28'),(5,'com@unismo.com','moro','Lula','1313-12-13',3,'2018-11-28','2019-11-28');
+INSERT INTO `usuario` VALUES (1,'professor@email.com','prof123','Professor','1980-10-05',1,'2018-11-25','2019-11-25'),(2,'aluno@email.com','aluno23','Aluno','2000-10-28',2,'2018-11-25','2019-11-25'),(3,'comunidade@email.com','comunidade123','Comunidade','1994-07-31',3,'2018-11-25','2019-11-25');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -284,4 +284,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-30 21:17:26
+-- Dump completed on 2018-11-30 21:22:21
