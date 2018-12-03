@@ -84,10 +84,25 @@
                 $emprestimo->Qtd = $_POST['qtdEmp'];
                 $emprestimo->idUsuarioE = $_SESSION['idUsuario'];
                 $emprestimo->idTipoUE = $_SESSION['tipoUsuarioID'];
+                
                 $form_data = $aplicacao->Emprestimo($emprestimo);
 
                 
                 break;               
+
+
+                case "reservaConfirmar":
+                session_start();             
+                $emprestimoR = new Usuario();
+                $emprestimoR->Qtd = $_POST['qtdReservar'];
+                $emprestimoR->idUsuarioR = $_SESSION['idUsuario'];
+                $emprestimo->LivroR = $_SESSION['nomeLivroR'];
+                
+                $form_data = $aplicacao->EmprestimoR($emprestimoR);
+
+                
+                break;       
+
 
                 case "AdicionarUsuario":
                 if (empty($_POST['inputEmail']) OR $_POST['inputEmail'] == "") {

@@ -119,6 +119,27 @@
             
             $stmt->execute();
 
+
+/* FUNCIONA 58%
+
+            $sqlE = "SELECT COUNT(idUsuario) AS Emp FROM emprestimo WHERE idUsuario = '$emprestimo->idUsuarioE'";
+             $stmt1 = $conn->prepare($sqlE);
+              $stmt1->execute();
+
+               $result = $stmt1->get_result();
+                if ($result->num_rows > 0) {
+                    if($row = $result->fetch_assoc()) {
+
+                        session_start([
+                            'cookie_lifetime' => 86400,
+                        ]);
+                        $_SESSION['qtdEmprestada'] = $row["Emp"];
+                    }
+                }
+
+*/
+
+
             //$sql2 = "INSERT INTO";           
             //$stmt = $conn->prepare($sql2);
             //$stmt->bind_param('ss', $email, $senha); // 's' especifica o tipo => 'string'
@@ -140,6 +161,34 @@
         }
 
 
+public function emprestimoR($emprestimoR)
+        {
+            $connection = new Connection();
+            $conn = $connection->getConn();
+
+            $sqlEm = "CALL EmprestimoLivroR('$emprestimoR->idUsuarioR', '$emprestimo->LivroR', $emprestimoR->Qtd')";
+
+            $stmt = $conn->prepare($sqlEm);
+            
+            $stmt->execute();
+
+            if ($stmt->error) {
+                $erros['nome'] = "Erro: " . $conn->error;
+                $form_data['success'] = false;
+                $form_data['erros']  = $erros; 
+                
+            } else {
+                $form_data['success'] = true;
+                $form_data['posted'] = 'Reserva cadastrada com sucesso!';
+            }
+
+            $conn->close(); 
+
+            echo json_encode($form_data);
+            die();
+        }
+
+       
 
         public function VerificaLoginUsuario($email, $senha)
         {

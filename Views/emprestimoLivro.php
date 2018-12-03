@@ -5,6 +5,7 @@
       <h5 id="user">Usuário:  <?php echo $_SESSION['nomeUsuario'] ?></h5>
          <h5 id="tipoUsuarioId1">Tipo: <?php echo $_SESSION['tipoUsuario'] ?></h5>
       <h5 id="data">Cadastro Expira em: <?php echo $_SESSION['vencimentoUsuario'] ?></h5>
+      <h5 id="qtdEmp">Quantidade de Livros Emprestadada: <?php echo $_SESSION['qtdEmprestada'] ?></h5>
       <a href="Views/sairUsuario.php"><button style="margin: 0 auto; text-align: center; display: block" type="button" id="deslogar" class="btn">Deslogar Usuário</button></a>
 
       <br>
@@ -32,7 +33,6 @@
 </div>
 <br>
 
-
 <script type="text/javascript">
   var conceptName = $('#emprestimoCombo').val();
   //console.log(conceptName);
@@ -59,7 +59,7 @@
 
 
 
-          </form>
+         <!-- </form> -->
        </div>
      </div>
  </div>
