@@ -146,7 +146,17 @@
             $connection = new Connection();
             $conn = $connection->getConn();
 
-            $sql = "SELECT idUsuario, email, nome, tipo, data_vencimento_cadastro FROM usuario where email = ? and senha = ?";
+            //$sql = "SELECT idUsuario, email, nome, tipo, data_vencimento_cadastro FROM usuario where email = ? and senha = ?";
+            $sql = "SELECT 
+            u.idUsuario AS idUsuario, 
+            email, 
+            nome, 
+            tipo, 
+            data_vencimento_cadastro,
+            COUNT(e.idUsuario) AS 'livrosEmp'
+            FROM usuario u
+            INNER JOIN emprestimo e ON u.idUsuario = e.idUsuario
+            WHERE email = ? and senha = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param('ss', $email, $senha); // 's' especifica o tipo => 'string'
 
@@ -167,8 +177,8 @@
                         $_SESSION['emailUsuario'] = $row["email"];
                         $_SESSION['nomeUsuario'] = $row["nome"];
                         $_SESSION['tipoUsuarioID'] = $row["tipo"];
-
                         $_SESSION['idUsuario'] = $row["idUsuario"];
+                        $_SESSION['qtdEmprestada'] = $row["livrosEmp"];
                         //$_SESSION['vencimentoUsuario'] = $row["data_vencimento_cadastro"];
 
                     $dataSQL = $row["data_vencimento_cadastro"];
